@@ -287,11 +287,13 @@
       }
 
       function loadData() {
-          var button = document.getElementsByClassName("button");
-          document.getElementsByClassName("instructions").innerHTML = "";
+          var button = document.getElementsByClassName("button")[0];
+
+          document.getElementsByClassName("instructions")[0].innerHTML = "";
           for (var i = 0; i < 50; i++) {
-              countryList = "<li>" + selected[i] + "</li>";
-              document.getElementsByClassName("instructions").innerHTML += countryList;
+              var temp = JSON.parse(JSON.stringify(selected[i]));
+              countryList = "<li>" + temp.name + ", " + temp.code + "</li>";
+              document.getElementsByClassName("instructions")[0].innerHTML += countryList;
           }
       }
   </script>
