@@ -287,13 +287,11 @@
       }
 
       function loadData() {
-          var name = document.getElementsByClassName("button");
-          var theName = name.value;
-          names.push(theName);
-          document.getElementByClassName("content").innerHTML = "";
-          for (var I = 0; I < selected.length; I++) {
-              nameList = "<li>" + selected[I] + "</li>";
-              document.getElementByClassName("content").innerHTML += countryList;
+          var button = document.getElementsByClassName("button");
+          document.getElementsByClassName("instructions").innerHTML = "";
+          for (var i = 0; i < 50; i++) {
+              countryList = "<li>" + selected[i] + "</li>";
+              document.getElementsByClassName("instructions").innerHTML += countryList;
           }
       }
   </script>
