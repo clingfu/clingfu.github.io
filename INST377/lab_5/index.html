@@ -13,7 +13,7 @@
       <!-- <button class="button" onclick="loadData()">Load Some JSON</button> -->
       <button class="button" onclick="loadData();">Click me to replace list entries</button>
       <div class="content">
-        <ul class="instructions">
+        <ol class="instructions">
           <li>Delete and re-clone the class repository</li>
           <li>Open <span class="code">lab_5_json.html</span> in your browser</li>
           <li>Open your developer tools and look at the logged data</li>
@@ -26,7 +26,7 @@
               <li>Randomize which fifty countries are displayed on load</li>
             </ol>
           </li>
-        </ul>
+        </ol>
       </div>
       <div class="footer"></div>
     </div>
@@ -279,20 +279,22 @@
           { "name": "Zimbabwe", "code": "ZW" }
       ]
       //console.log("List of countries in the world", countries);
-      var selected = [];
+      sessionStorage.setItem("countries", JSON.stringify(countries));    
       var countryList = "";
-      for (var i = 0; i < 50; i += 1) {
-          var k = Math.floor(Math.random() * 242);
-          selected.push(countries[k]);
-      }
 
       function loadData() {
           var button = document.getElementsByClassName("button")[0];
+          var selected = [];
+          var retrieved = JSON.parse(sessionStorage.getItem("countries"));
 
+          for (var i = 0; i < 50; i += 1) {
+              var k = Math.floor(Math.random() * (242 - i));
+              selected.push(retrieved[k]);
+              retrieved.splice(k,1);
+          }
           document.getElementsByClassName("instructions")[0].innerHTML = "";
           for (var i = 0; i < 50; i++) {
-              var temp = JSON.parse(JSON.stringify(selected[i]));
-              countryList = "<li>" + temp.name + ", " + temp.code + "</li>";
+              countryList = "<li>" + selected[i].name + ", "+ selected[i].code + "</li>";
               document.getElementsByClassName("instructions")[0].innerHTML += countryList;
           }
       }
