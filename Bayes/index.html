@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Baye's Probability Calculator</title>
+    <!--- link rel="stylesheet" type="text/css" href="./style.css" -->
+    </head>
+
+<body>
+    <div class="container">
+        <div class="wrapper">
+            <div class="header">Test JSON page</div>
+            <div class="content">
+                <form action="/action_page.php">
+                    Probability of A: <input type="text" id="probA"><br>
+                    Probability of B: <input type="text" id="probB"><br>
+                    Probability of B given A: <input type="text" id="probGiv"><br>
+                </form>
+                <button class="button" onclick="bayes();">Calculate</button>
+            </div>
+            <div id="results">
+                <p>P(A|B): </p>
+            </div>
+        </div>
+
+
+        <script>
+                function bayes() {
+                    var a = document.getElementById("probA").value;
+                    var b = document.getElementById("probB").value;
+                    var bGiva = document.getElementById("probGiv").value;
+                    try {
+                        if (a==""||b==""||bGiva=="") throw "Fields cannot be empty.";
+                        if (isNaN(a)||isNaN(b)||isNaN(bGiva)) throw "Fields must be numbers.";
+                        //x = Number(x);
+                        if (a<0||b<0||bGiva<0) throw "Probabilities must be positive.";
+                        if (a>1||b>1||bGiva>1) throw "Probabilities must not exceed 1.";
+                    }
+                    catch (err) {
+                        document.getElementById("results").innerHTML = "<p>" + err+ "</p>";
+                        return;
+                    }
+                    var aGivb = (a * bGiva) / b;
+                    document.getElementById("results").innerHTML = "<p>P(A|B): " + aGivb + "</p>";
+                }
+            </script>
+</body>
+
+</html>
+
