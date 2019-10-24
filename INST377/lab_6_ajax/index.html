@@ -32,7 +32,7 @@
           for (var i = 0; i < 15; i += 1) {
               var k = Math.floor(Math.random() * (242 - i));
               selected.push(retrieved[k]);
-              console.log(JSON.stringify(selected[i]));
+              console.log(retrieved[k].name);
               retrieved.splice(k,1);
           }
           for (var i = 0; i < 50; i++) {
