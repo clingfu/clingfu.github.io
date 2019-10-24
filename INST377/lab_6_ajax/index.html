@@ -19,22 +19,25 @@
     function loadData() {
       fetch('ajax_sample.json')
         .then(res => res.json())
-        .then(data => data.map(c => c.code))
-        .then(select15(data))
+        //.then(data => data.map(c => c.name))
+        .then(data => select15(data))
         .then(data => document.querySelector(".content").innerText = data);
     }
 
     function select15(s) {
           var button = document.getElementsByClassName("button")[0];
           var selected = [];
-          var retrieved = s;
+          var retrieved = JSON.parse(s);
 
           for (var i = 0; i < 15; i += 1) {
               var k = Math.floor(Math.random() * (242 - i));
               selected.push(s[k]);
               retrieved.splice(k,1);
           }
-          s = retrieved
+          s = "";
+          for (var i = 0; i < 50; i++) {
+              s += "<li>" + selected[i].name + ", "+ selected[i].code + "</li>";
+          }
     }
   </script>
 </body>
