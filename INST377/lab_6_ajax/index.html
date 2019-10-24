@@ -19,13 +19,12 @@
     function loadData() {
       fetch('ajax_sample.json')
         .then(res => res.json())
-        //.then(data => data.map(c => c.name))
-        .then(data => select15(data))
+        .then(data => data.map(c => c.name))
+        //.then(data => select15(data))
         .then(data => document.querySelector(".content").innerText = data)
     }
 
     function select15(s) {
-          var button = document.getElementsByClassName("button")[0];
           var selected = [];
           var retrieved = s;
           var countrylist = "";
@@ -38,7 +37,7 @@
           for (var i = 0; i < 50; i++) {
               countrylist += "<li>" + selected[i].name + ", "+ selected[i].code + "</li>";
           }
-          s = countrylist;
+          return s = countrylist;
     }
   </script>
 </body>
