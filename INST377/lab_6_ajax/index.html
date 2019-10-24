@@ -20,6 +20,7 @@
       fetch('ajax_sample.json')
         .then(res => res.json())
         //.then(data => data.map(c => c.name))
+        .then(console.log(res))
         .then(data => select15(data))
         .then(data => document.querySelector(".content").innerText = data)
     }
