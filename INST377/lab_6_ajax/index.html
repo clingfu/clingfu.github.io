@@ -23,7 +23,7 @@
         .then(res => res.json())
         //.then(data => data.map(c => c.name))
         .then(data => select15(data))
-        .then(data => document.getElementsByClassName("instructions"[0]).innerText = data)
+        .then(data => document.getElementsByClassName("instructions")[0].innerText = data)
     }
 
     function select15(s) {
