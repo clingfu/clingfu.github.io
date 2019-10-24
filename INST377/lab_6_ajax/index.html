@@ -20,7 +20,7 @@
       fetch('ajax_sample.json')
         .then(data => data.json())
         //.then(data => data.map(c => c.name))
-        .then(data => select15(data))
+        .then(select15(data))
         .then(data => document.querySelector(".content").innerText = data)
     }
 
@@ -32,7 +32,7 @@
 
           for (var i = 0; i < 15; i += 1) {
               var k = Math.floor(Math.random() * (242 - i));
-              selected.push(s[k]);
+              selected.push(retireved[k]);
               retrieved.splice(k,1);
           }
           for (var i = 0; i < 50; i++) {
