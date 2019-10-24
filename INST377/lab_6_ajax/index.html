@@ -20,7 +20,7 @@
       fetch('ajax_sample.json')
         .then(res => res.json())
         .then(data => data.map(c => c.code))
-        .then(data => select15(data))
+        .then(select15(data))
         .then(data => document.querySelector(".content").innerText = data);
     }
 
@@ -34,7 +34,7 @@
               selected.push(s[k]);
               retrieved.splice(k,1);
           }
-          return selected;
+          s = retrieved
     }
   </script>
 </body>
