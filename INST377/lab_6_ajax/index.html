@@ -27,13 +27,12 @@
     }
 
     function select15(s) {
-          var selected = [];
           var retrieved = s;
           var countrylist = "";
 
           for (var i = 0; i < 15; i += 1) {
               var k = Math.floor(Math.random() * (242 - i));
-              countrylist += "<li>" +JSON.stringify(retrieved[k]) +"</li>" 
+              countrylist += "<li>" + retrieved[k].name +"</li>" 
               console.log(retrieved[k].name);
               retrieved.splice(k,1);
           }
