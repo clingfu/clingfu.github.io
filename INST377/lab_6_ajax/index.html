@@ -20,25 +20,21 @@
       fetch('ajax_sample.json')
         .then(res => res.json())
         .then(res => res.map(c => c.code))
-       // .then(codes => )
+        .then(codes => select15(codes))
         .then(codes => document.querySelector(".content").innerText = codes);
     }
 
     function select15(s) {
           var button = document.getElementsByClassName("button")[0];
           var selected = [];
-          var retrieved = JSON.parse(s);
+          var retrieved = s;
 
           for (var i = 0; i < 15; i += 1) {
               var k = Math.floor(Math.random() * (242 - i));
-              selected.push(retrieved[k]);
-              retrieved.splice(k,1);
+              selected.push(s[k]);
+              s.splice(k,1);
           }
-          document.getElementsByClassName("instructions")[0].innerHTML = "";
-          for (var i = 0; i < 15; i++) {
-              countryList = "<li>" + selected[i].name + ", "+ selected[i].code + "</li>";
-              document.getElementsByClassName("instructions")[0].innerHTML += countryList;
-          }
+          
       }
   </script>
 </body>
