@@ -23,7 +23,7 @@
         .then(res => res.json())
         //.then(data => data.map(c => c.name))
         .then(data => select15(data))
-        .then(data => document.getElementsByClassName("instructions")[0].innerText = data)
+        .then(data => document.getElementsByClassName("instructions")[0].innerHTML = data)
     }
 
     function select15(s) {
@@ -32,7 +32,7 @@
 
           for (var i = 0; i < 15; i += 1) {
               var k = Math.floor(Math.random() * (242 - i));
-              countrylist += "<li>" + retrieved[k].name +"</li>" 
+              countryList = "<li>" + retrieved[k].name + ", "+ retrieved[k].code + "</li>";
               console.log(retrieved[k].name);
               retrieved.splice(k,1);
           }
