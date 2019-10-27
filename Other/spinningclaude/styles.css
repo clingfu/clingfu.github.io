@@ -1,12 +1,7 @@
 ﻿body {
     background-color: #FF0;
-    cursor: url("byleth.gif");
+    cursor: url("./images/byleth.gif");
 }
-
-#loading {
-
-}
-
 
 @-webkit-keyframes rotation {
     from {
@@ -18,10 +13,18 @@
     }
 }
 
-.center {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    height: 50%;
-   -webkit-animation: rotation 3s infinite linear;
+ {
+    display: flex;
+    justify-content: center;
+}
+
+#img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 500px;
+    /*height: 500px;*/
+    margin-top: -260px;
+    margin-left: -250px;
+    -webkit-animation: rotation 3s infinite linear;
 }
