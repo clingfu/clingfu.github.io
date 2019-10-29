@@ -1,6 +1,6 @@
 ﻿body {
     background-color: #FF0;
-    cursor: url("./images/byleth.gif");
+    
 }
 
 @-webkit-keyframes rotation {
@@ -13,10 +13,11 @@
     }
 }
 
- {
-    display: flex;
-    justify-content: center;
+/*
+.center{
+    cursor: url("./images/byleth.png");
 }
+*/
 
 #img {
     position: absolute;

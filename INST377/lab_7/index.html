@@ -18,14 +18,31 @@
   <script>
     function loadData() {
       fetch('https://api.umd.io/v0/bus/routes')
-        .then(res => res.json())
         .then(res => {
-          // you can now work in this area
+          console.log("This is default fetch:")
           console.log(res);
           return res;
         })
-        
-        .then(data => document.querySelector(".content").innerText = data);
+        .then(res => res.json())    //convert to JSON array
+        .then (data => {
+
+        })
+        .then(data => {             //print list of names
+          var names = data.map(c => "<li>"+c.title+"</li>")
+          document.querySelector(".content").innerHTML = "<ul>" + names.join("") + "</ul>"
+          return data
+        })
+        .then(data => {             //change title to 141
+          var route141 = data.find(c => {return c.route_id == "141"})
+          document.querySelector(".header").innerHTML += " " + route141.title
+          return data
+        })
+        .then(res => {
+          console.log("This is the end:")
+          console.log(res);
+          return res;
+        })
+        .catch((err) => {console.log(err)});
     }
   </script>
 </body>
