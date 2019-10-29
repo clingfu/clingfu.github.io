@@ -35,7 +35,8 @@
         })
         .then(data => {             //change title to 141
           var route141 = data.find(c => {return c.route_id == "141"})
-          document.querySelector(".header").innerHTML += " " + route141.route_id + " " +  route141.title
+          document.querySelector(".header").innerHTML = "UMD Bus Route " + route141.route_id 
+                    + " " +  route141.title
           return data
         })
         .then(res => {
