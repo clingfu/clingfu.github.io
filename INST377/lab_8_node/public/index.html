@@ -24,11 +24,8 @@
           console.log(res); // logging step to check what we got
           return res;
         })
-        .then(res => res.filter(c => {return  c.course_id.startswith("INST")}))
-        .then(data => {     
-          var courses = data.map(c => "<li>"+c.course_id + ": " + c.name+"</li>")
-          document.querySelector(".content").innerHTML = "<ol>" + names.join("") + "</ol>"
-        })
+        .then(res => res.data.map(c => c.route_id))
+        .then(codes => document.querySelector(".content").innerText = codes);
     }
   </script>
 </body>
